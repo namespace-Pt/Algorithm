@@ -64,6 +64,7 @@ template<typename T>
 int SkipList<T>::_level(){
     int lev = 0;
     srand(time(NULL));
+    // 保证以(p)^i(1-p)的概率引入一个i级别的节点
     while((rand()%99)/(double)100 <= this->_prob)
     {
         lev++;
