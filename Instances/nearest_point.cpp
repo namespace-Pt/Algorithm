@@ -46,7 +46,8 @@ float cpair2(point* s,int length){
     // O(1)
     int mid = length/2;
     int mid_x = s[mid].x;
-
+    point* s1 = s;
+    point* s2 = s+mid;
     // 分治
     // 注意分治的数组长度，千万不要越界，length是长度，mid可以理解为索引
     // T(n/2) * 2
@@ -64,8 +65,7 @@ float cpair2(point* s,int length){
     // 因为有可能超过半数的点的坐标相同，这样的话中位数恒为该定值，那么在分治时无法将当前s分为两半
     // 因为横坐标小于等于mid_x的点会被归到一边，造成死循环
     // O(1)
-    point* s1 = s;
-    point* s2 = s+mid;
+    
     // 新建两个数组，分别保存分界线两边的点
     point * p1 = new point[mid];
     point * p2 = new point[length-mid];
