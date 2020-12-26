@@ -1,0 +1,67 @@
+\documentclass[UTF8]{ctexart}
+\usepackage{dirtree}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{enumerate}
+\usepackage[a4paper]{geometry} 
+\usepackage{amsmath,amsthm,mathtools}
+\usepackage{mathtools}
+\usepackage{diagbox}
+\usepackage{multirow,makecell}
+\usepackage{float}
+\usepackage{url}
+\usepackage[nottoc]{tocbibind}
+\usepackage{float}
+\newcommand{\refe}[1]{Eq.\ref{#1}}
+\newcommand{\reft}[1]{Theory.\ref{#1}\ }
+\newcommand{\reff}[1]{图\ref{#1}\ }
+\newtheorem{theorem}{Theory}[section]
+\geometry{bottom=2cm,left=1cm,right=1cm}
+%插入代码样式设置
+\lstset{
+ columns=fixed,
+ numbers=left,                                        % 在左侧显示行号
+ numberstyle=\tiny\color{gray},                       % 设定行号格式
+ basicstyle=\small\ttfamily,
+ frame=none,                                          % 不显示背景边框
+ backgroundcolor=\color[RGB]{245,245,244},            % 设定背景颜色
+ keywordstyle=\color[RGB]{40,40,255},                 % 设定关键字颜色
+ numberstyle=\footnotesize\color{darkgray},           
+ commentstyle=\color{gray}\ttfamily,                  % 设置代码注释的格式
+ stringstyle=\rmfamily\slshape\color[RGB]{128,0,0},   % 设置字符串格式
+ showstringspaces=false,
+ breaklines=true,
+ language=python
+}
+
+\title{}
+\author{张配天-2018202180}
+\begin{document}
+    \maketitle
+    \section*{4.4-1}
+    首先，树每一层的问题规模会变为原来的一半，因此计算树的层数为$k = \log_2^n$；
+    \par 同时，树的每一层节点数为上一层的三倍，因此第$i$层共有$3^i$个节点，
+    每一层的消耗为$Cost = (\frac{3}{2})^i n$，因此得到\begin{equation}
+        T(n) = n(\frac{3}{2} + (\frac{3}{2})^2 + \dots + (\frac{3}{2})^{lgn})
+    \end{equation}
+    \par 于是有
+    \begin{gather}
+        T(n) = n(\frac{1-(\frac{3}{2})^{lgn}}{1-\frac{3}{2}})
+        \implies T(n) = 2n(n^{\lg{\frac{3}{2}}} - 1) = \Theta (n^{lg3})
+    \end{gather}
+    \par 接下来利用代入法进行验证：
+    设$k<n$时，有$T(k) \leq ck^{\lg{3}}-2k$，于是有
+    \begin{equation}
+        T(n) \leq 3c(\frac{n}{2})^{\lg{3}} - 2n \leq cn^{\lg{3}}-2n
+    \end{equation}
+    \par 因此，得到$T(n) = O(n^{lg3})$
+    \section*{4.5-1}
+    \subsection*{a}
+    $a = 2,b=4$，有$n^{\log_b^a} = \sqrt{n}$，又因为$\epsilon=\frac{1}{2}$时，有$\lim_{n\to \infty}\frac{1}{n^{\frac{1}{2}-\epsilon}} = 0$，
+    所以$f(n) = O(n^{\log_b^a} - \epsilon)$，则$T(n) = \Theta(\sqrt{n})$
+    \subsection*{b}
+    $a = 2,b=4$，有$n^{\log_b^a} = \sqrt{n}$，又因为有$\lim_{n\to \infty}\frac{\sqrt{n}}{n^{\frac{1}{2}}} = 0$，
+    所以$f(n) = \Theta(n^{\log_b^a})$，则$T(n) = \Theta(\sqrt{n}\lg{n})$
+    
+\end{document}
