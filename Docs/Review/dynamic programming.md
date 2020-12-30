@@ -7,27 +7,27 @@
 ### 方案
 - 共$2^{n+1}$种
 ### 理解算法
-![](../Resources/1_页面_01.png)
-![](../Resources/1_页面_02.png)
+![](../../Resources/1_页面_01.png)
+![](../../Resources/1_页面_02.png)
 ## 矩阵链乘
 ### 方案
 - 共$\sum_{i=2}^n(n-i+1)$
 ### 理解算法
-![](../Resources/1_页面_03.png)
-![](../Resources/1_页面_04.png)
-![](../Resources/1_页面_05.png)
+![](../../Resources/1_页面_03.png)
+![](../../Resources/1_页面_04.png)
+![](../../Resources/1_页面_05.png)
 ## 公共子序列
 ### 方案
 - 共$2^n$种, 其中$n$为$X$的长度
 ### 理解算法
-![](../Resources/1_页面_06.png)
-![](../Resources/1_页面_07.png)
-![](../Resources/1_页面_08.png)
+![](../../Resources/1_页面_06.png)
+![](../../Resources/1_页面_07.png)
+![](../../Resources/1_页面_08.png)
 
 ## 0-1背包问题
 ### 方案
 - 共$2^n$种, 因为每一个物品都要尝试拿/不拿
 ### 理解算法
-![](../Resources/1_页面_09.png)
-![](../Resources/1_页面_10.png)
-![](../Resources/1_页面_11.png)
+![](../../Resources/1_页面_09.png)
+![](../../Resources/1_页面_10.png)
+![](../../Resources/1_页面_11.png)

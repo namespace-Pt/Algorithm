@@ -57,20 +57,20 @@
     \begin{enumerate}
         \item 首先分组排序，$O(n)$：\begin{figure}[H]
             \centering
-            \includegraphics[width=10cm]{resources/6_2.png}
+            \includegraphics[width=10cm]{../Resources/6_2.png}
         \end{figure}
         \item 之后递归找中位数，$T(\left\lceil \frac{n}{5}\right\rceil)$：\begin{figure}[H]
             \centering
-            \includegraphics[width=10cm]{resources/6_3.png}
+            \includegraphics[width=10cm]{../Resources/6_3.png}
         \end{figure}
         \item 最后递归找位置$T(\frac{7n}{10} + 6)$：\begin{figure}[H]
             \centering
-            \includegraphics[width=10cm]{resources/6_4.png}
+            \includegraphics[width=10cm]{../Resources/6_4.png}
         \end{figure}
 
     \end{enumerate}
-    % 2. 之后递归找中位数，$T(\left\lceil \frac{n}{5}\right\rceil)$![](resources/6_3.png)
-    % 3. 最后递归找位置$T(\frac{7n}{10} + 6)$![](resources/6_4.png)
+    % 2. 之后递归找中位数，$T(\left\lceil \frac{n}{5}\right\rceil)$![](../Resources/6_3.png)
+    % 3. 最后递归找位置$T(\frac{7n}{10} + 6)$![](../Resources/6_4.png)
     \subsection{证明最差为线性时间复杂度}
     经过分析，有时间复杂度如下：
     \begin{align}
@@ -241,7 +241,7 @@ int main(){
     \section{运行截图}
         \begin{figure}[H]
             \centering
-            \includegraphics[width=12cm]{resources/6_1.png}
+            \includegraphics[width=12cm]{../Resources/6_1.png}
         \end{figure}
     经过验证（\emph{将A排序后输出A[999]}），结果正确。验证代码包含在源代码中（见注释）。
  
