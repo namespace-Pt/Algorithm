@@ -3,7 +3,9 @@
 ## 插入排序
 ### 普通插入排序
 - 步骤
-  - 不想写了
+  - 在$A[1,\cdots,i]$中, 令$key=A[i]$, 从后往前遍历$A[1,\cdots,i]$
+  - 如果$A[j]>key$则$A[j+1] = A[j]$
+  - 如果$A[j] \leq key$就把$A[i]$插入到该元素的后面
 - 分析
   - **比较次数**
     - **最好情况**
@@ -187,12 +189,8 @@
       - 记$A[j]$进入$i$桶为事件$X_{i,j}$, 则有$P(X_{i,j}) = \frac{1}{n}$
       $$
       \begin{aligned}
-        E(X_i^2) &= E(\sum_{j=1}^n\sum_{k=1}^n P(X_{i,j}) P(X_{i,k}))\\&=E(\sum_{j=1}^nX_{i,j}^2 + \sum_{j=1}^n\sum_{k=1,k\ne j}^n X_{i,j}X_{i,k}) \\ &= \sum_{j=1}^nE(X_{i,j}^2) +  \sum_{j=1}^n\sum_{k=1,k\ne j}^n E( X_{i,j}X_{i,k})
-      \end{aligned}
-      $$
-      - $E(X_{i,j}^2) = 1^2*\frac{1}{n} + 0^2*\frac{n-1}{n} = \frac{1}{n}$, $E(X_{i,j}X_{i,k})) = \frac{1}{n}*\frac{1}{n}=\frac{1}{n^2}$
-      
-      $$\begin{aligned}
+        E(X_i^2) &= E(\sum_{j=1}^n\sum_{k=1}^n P(X_{i,j}) P(X_{i,k}))\\&=E(\sum_{j=1}^nX_{i,j}^2 + \sum_{j=1}^n\sum_{k=1,k\ne j}^n X_{i,j}X_{i,k}) \\ &= \sum_{j=1}^nE(X_{i,j}^2) +  \sum_{j=1}^n\sum_{k=1,k\ne j}^n E( X_{i,j}X_{i,k})\\
+        E(X_{i,j}^2) &= 1^2*\frac{1}{n} + 0^2*\frac{n-1}{n} = \frac{1}{n}\\E(X_{i,j}X_{i,k}) &= \frac{1}{n}*\frac{1}{n}=\frac{1}{n^2}\\
         \implies E(X_i^2) &= \sum_{j=1}^n\frac{1}{n} +  \sum_{j=1}^n\sum_{k=1,k\ne j}^n \frac{1}{n^2} \\&= n*\frac{1}{n}+n*(n-1)*\frac{1}{n^2} \\&= 2-\frac{1}{n}
       \end{aligned}
       $$
@@ -237,12 +235,12 @@
   - 使用**代入法**, 得证$E(T(n)) = O(n)$
 ## 最坏情况是线性时间的选择算法
 - 步骤
-  - 将$A[1,\cdots,n]$分为$\lceil \frac{n}{5}\rceil$组, 每一组内插入排序, 取出每一组的中位数得到中位数组$\lceil \frac{n}{5}\rceil$
+  - 将$A[1,\cdots,n]$分为$\lceil \frac{n}{5}\rceil$组, 每一组内插入排序, 取出每一组的中位数得到长度为$\lceil \frac{n}{5}\rceil$的中位数组
   - 递归调用自身找**中维数组的中位数$x$**
   - 用$x$作为$pivot$进行`PARTITION(p,r,x)`, 记$x$为$A[p,\cdots,q]$中第$k$小的
   - 如果$k = target$, 则直接返回
-  - 如果$k < target$, 则取右边的一半找第$target$大
-  - 如果$k < target$, 则取左边的一半找第$target-k$大
+  - 如果$k < target$, 则取右边的一半找第$target-k$大
+  - 如果$k > target$, 则取左边的一半找第$targek$大
 - 分析
   - 对$\lceil \frac{n}{5}\rceil$组进行插入排序, 每一组内最多有$5$个元素, 则总时间复杂度$n*O(5) = O(n)$
   - 查找中位数组的中位数, 有时间复杂度$T(\lceil \frac{n}{5}\rceil)$
