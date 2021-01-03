@@ -1,7 +1,13 @@
 # 数学知识
 ## 界
+### 函数增长
+- $$n! = w(2^n)$$
+- $$n! = O(n^n)$$
 ### 求和
-- $$1 + \int_2^{n+1}\frac{1}{x}dx \leq\sum_{i=1}^{n}\frac{1}{i} \leq 1+ \int_1^n\frac{1}{x}dx\\\implies 1+\ln2+\ln n \leq \sum_{i=1}^{n}\frac{1}{i} \leq 1+\ln n$$
+- $$\begin{aligned}
+    1 + \int_2^{n+1}\frac{1}{x}dx &\leq\sum_{i=1}^{n}\frac{1}{i} \leq 1+ \int_1^n\frac{1}{x}dx\\
+    \implies 1+\ln2+\ln n &\leq \sum_{i=1}^{n}\frac{1}{i} \leq 1+\ln n
+\end{aligned}$$
 - $$\forall |x| < 1\quad\sum_{k=0}^{\infty}kx^k = \frac{x}{(1-x)^2}$$
 - $$(\sum_{i}^nf(i))^2 = ?$$
 - $$\sum_{i=1}^n\lceil\lg i\rceil = n\lg n -n + 1????$$
