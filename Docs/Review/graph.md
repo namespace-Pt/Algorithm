@@ -154,8 +154,8 @@
     - $h(u)$是使用`Bellman-Ford`算法求得的从新加入的虚拟节点$s$到$u$的单源最短路径
   - 用新权重对每个节点调用`Dijkstra`, 得到的伪最短路径$\delta'(i,j)$, 有$$\delta(i,j) = \delta'(i,j) + h(j) - h(i)$$
 - 时间复杂度
-  - 斐波那契堆: $O(VE+V^2lgV)$
   - 二项堆: $O(V^2lgV + VElgV)$
+  - 斐波那契堆: $O(VE+V^2lgV)$
 
 ### 回溯最短路径
 - 只需要最终最短路径矩阵$w_{i,j}$的前驱结点矩阵$\pi_{i,j}$, 因为$i\rightarrow j$的最短路径中若有$i\rightarrow r\rightarrow j$, 则$i\rightarrow r$一定也是最短路径, 即有$\pi_{i,j} = r$, 因此可以递归地进行回溯
@@ -172,7 +172,7 @@
 - **流量限制**$$\forall u,v \in V\quad 0\leq f(u,v)\leq c(u,v)$$
 - **流量守恒**$$\forall u \in V-\{s,t\}\quad \sum_{v\in V}f(u,v) = \sum_{v\in V}f(v,u)$$
 ### 剩余网络
-- 对于一个流网络$G(V,E)$, 其源点$s$, 汇点$t$, $f$为$G$上的一个流, 定义
+- 对于一个流网络$G(V,E)$, 其源点$s$, 汇点$t$, $f$为$G$上的一个流, 定义剩余容量为
 $$c_f(u,v) = \begin{cases}
   c(u,v) - f(u,v)&若e(u,v)\in E\\
   f(u,v)&若e(v,u)\in E\\
