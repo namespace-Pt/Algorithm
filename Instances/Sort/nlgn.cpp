@@ -30,8 +30,39 @@ public:
         }
     }
 
-    void merge_sort(vector<int> &l){
+    void merge_sort(vector<int> &l, int start, int end){
+        if(start == end){
+            return;
+        }
+        int mid = (start + end)/2;
+        int i = start, j = mid+1;
+        vector<int> tmp;
 
+        merge_sort(l, start, mid);
+        merge_sort(l, mid+1, end);
+
+        while(i <= mid && j <= end){
+            if(l[i] < l[j]){
+                tmp.push_back(l[i]);
+                i ++;
+            }
+            else{
+                tmp.push_back(l[j]);
+                j ++;
+            }
+        }
+        while(i <= mid){
+            tmp.push_back(l[i]);
+            i ++;
+        }
+        while(j <= end){
+            tmp.push_back(l[j]);
+            j ++;
+        }
+
+        for(int k = start;k <= end;k++){
+            l[k] = tmp[k-start];
+        }
     }
 
 private:
@@ -101,7 +132,8 @@ int main(){
 
     Sort_NlgN s;
     // s.heap_sort(l);
-    s.quick_sort(l,0,l.size() - 1);
+    // s.quick_sort(l,0,l.size() - 1);
+    s.merge_sort(l,0,l.size() - 1);
 
     for(auto i:l){
         cout<<i<<",";
